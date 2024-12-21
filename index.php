@@ -42,7 +42,7 @@ $recupImageAcceuil1 = obtenirDonnees("chemin_images, id_images", "images", 'id_i
         <!-- <div class="width-100 flex row color-main space-between padding-2 padding-right-0 gap-1">
             <div class="flex column width-50 ">
                 <?php 
-                afficheTitre(2, "Arnaud DESCHAMP <br> Personal Training ", "", "");
+                afficheTitre(1, "Arnaud DESCHAMP <br> Personal Training ", "", "");
                 ?>
                 <p><?php echo nl2br(htmlspecialchars($paragraphe2['contenu'])); ?></p>
                 <div id="redirection" class="flex row align-item-center gap-1 ">
