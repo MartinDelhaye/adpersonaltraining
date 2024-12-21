@@ -54,7 +54,7 @@ function infometa()
             <!-- Link CSS -->
             <link href="CSS/style.css" rel="stylesheet" type="text/css"> 
             <!-- Link JS -->
-            <script src="../scripts/scripts.js"></script>
+            <script src="scripts/scripts.js"></script>
             <!-- Link Font -->
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
@@ -172,7 +172,7 @@ function afficheInfo($tab, $nomTableBDD, $tableCSSGloal, $tableCSSFocus)
     $index = 0;
     foreach ($tab as $focus):
         echo '<div class="' . $tableCSSFocus . '">';
-        echo '<p class="position font-bold">' . $index + 1 . '</p>';
+        if($nomTableBDD == "avantage") echo '<p class="position font-bold">' . $index + 1 . '</p>';
         echo '<section>';
         echo '<h2>' . $focus['titre_' . $nomTableBDD] . '</h2>';
         echo '<p>' . $focus['texte_' . $nomTableBDD] . '</p>';
