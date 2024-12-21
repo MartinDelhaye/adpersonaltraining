@@ -263,11 +263,12 @@ header {
     z-index: 1000;
     backdrop-filter: blur(10px);
     max-height: 300px;
-    max-width: 100vw;
+    height: 70px;
+    width: 100vw;
 }
 
 .logo {
-    height: 100px;
+    height: 60px;
 }
 
 header a {
@@ -636,9 +637,9 @@ form {
 
 /* ------------- Styles pour les appareils mobiles ------------- */
 @media (max-width: 768px) {
-    .logo {
+    /* .logo {
         height: 70px;
-    }
+    } */
 
     .form-admin {
         flex-direction: column;
