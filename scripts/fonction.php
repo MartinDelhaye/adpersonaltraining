@@ -186,45 +186,6 @@ function afficheInfo($tab, $nomTableBDD, $tableCSSGloal, $tableCSSFocus)
 
 
 /**
- * Affiche un témoignage
- * 
- * @param array $tabTemoignageFocus un tableau contenant les informations d'un témoignage
- * @param int $i un compteur pour l'index du témoignage
- */
-function afficheTemoignage($tabTemoignageFocus, $i)
-{
-    echo "<article class='bloc_info'>";
-    echo "<div class='padding-2 margin-site temoignage flex row align-item-center justify-content-center gap-1'>";
-    echo afficherImage("Image/Temoignage/" . $tabTemoignageFocus["img_temoignage"], $tabTemoignageFocus["nom_temoignage"] . " " . $tabTemoignageFocus["prenom_temoignage"], "bordure-radius-50 width-33 img-temoignage", "");
-
-    echo '<div class=" width-67 mobile-only-width-100 ">';
-    afficheTitre(2, $tabTemoignageFocus["prenom_temoignage"] . " " . $tabTemoignageFocus["nom_temoignage"], "", "");
-
-    $sous_titre = "";
-    if (isset($tabTemoignageFocus["metier_temoignage"])) {
-        $sous_titre .= $tabTemoignageFocus["metier_temoignage"];
-    }
-
-    if (isset($tabTemoignageFocus["age_temoignage"])) {
-        if (!empty($sous_titre)) {
-            $sous_titre .= " - ";
-        }
-        $sous_titre .= $tabTemoignageFocus["age_temoignage"] . " ans";
-    }
-
-    afficheTitre(3, $sous_titre, "", "");
-    echo "<p>" . $tabTemoignageFocus["texte_reformuler_temoignage"] . "</p>";
-
-    echo "<br> <button id='texte_temoignage_boutton_" . $i . "' class='display align-item-center justify-content-center justify-content padding-2  texte_temoignage_buttons '>" . afficherImage("Image/flecheBas.webp", "fleche", "icon", "") . "</button>";
-    echo "</div>";
-    echo "</div>";
-    echo "<p id='texte_temoignage_bloc_" . $i . "' class='texte_temoignage_blocs padding-2'>" . nl2br(htmlspecialchars($tabTemoignageFocus["texte_temoignage"])) . "</p>";
-
-    echo "</article>";
-}
-
-
-/**
  * Affiche un bouton pour remonter en haut de la page
  *
  * Utilise la classe "scroll-to-top" pour positionner le bouton
