@@ -1,0 +1,690 @@
+/* ------------- Définitions de variable ------------- */
+:root {
+    --color-fond: #ffffff;
+    --color-black: #2b2b2f;
+    --color-white: white;
+    --color-main: #C0C0C0;
+    --color-second: #898989;
+    --color-sombre: #65716e;
+    --font-fam-principale: Montserrat, sans-serif;
+    --font-fam-secondaire: Oswald, sans-serif;
+}
+
+/* 65716e */
+/* :root {
+    --color-fond: #ffffff;
+    --color-black: #2b2b2f;
+    --color-white: white;
+    --color-main: #C0C0C0;
+    --color-second: #898989;
+    --color-sombre: #5B5B5B;
+    --font-fam-principale: Montserrat, sans-serif;
+    --font-fam-secondaire: Oswald, sans-serif;
+} */
+
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+body {
+    background-color: var(--color-fond);
+    margin: 0;
+    font-family: var(--font-fam-principale);
+    color: var(--color-black);
+    overflow-x: hidden;
+    height: 100vh;
+    max-width: 100vw;
+}
+
+/* ------------- Enlève et met des styles de base ------------- */
+a,
+ul,
+li,
+button,
+input[type="submit"] {
+    all: unset;
+}
+
+/* Empeche la deformation de l'image */
+img {
+    object-fit: cover;
+}
+
+/* Remet le cursor sur les liens */
+a,
+.scroll-to-top,
+.action-button,
+input[type="submit"] {
+    cursor: pointer;
+}
+
+input,
+textarea {
+    font-family: var(--font-fam);
+}
+
+/* ------------- Police d'ecriture ------------- */
+h1 {
+    font-weight: normal;
+    /* Pour enlever le gras */
+    color: var(--color-black);
+    font-size: clamp(1.30rem, 1.9vw + 1rem, 2.7rem);
+}
+
+h2 {
+    font-weight: normal;
+    font-size: clamp(1.1rem, 1.3vw + 1rem, 2.2rem);
+}
+
+h3 {
+    font-weight: normal;
+    font-size: clamp(0.9rem, 1vw + 0.5rem, 1.8rem);
+}
+
+p,
+a {
+    font-family: var(--font-fam-secondaire);
+    font-size: clamp(0.75rem, 0.6vw + 0.5rem, 1.1rem);
+}
+
+a {
+    font-family: var(--font-fam-principale);
+}
+
+/* ------------- Classe générique ------------- */
+
+.display-none {
+    display: none;
+}
+
+.gap-1 {
+    gap: 1vw;
+}
+
+.padding-2 {
+    padding: 2%;
+}
+
+/* .padding-0{
+    padding: 0;
+} */
+
+.padding-right-0 {
+    padding-right: 0;
+}
+
+.texte-center {
+    text-align: center;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.width-90 {
+    width: 90%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-67 {
+    width: 67%;
+}
+
+.width-33 {
+    width: 33%;
+}
+
+.height-page {
+    /* height: 100vh; */
+    min-height: 100vh;
+}
+
+.bordure-10 {
+    border: 10px solid var(--color-main);
+}
+
+.bordure-radius-20 {
+    border-radius: 20px;
+}
+
+.bordure-radius-no-right {
+    /* border-radius : 0 20px 20px 0; */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.bordure-radius-50 {
+    border-radius: 50%;
+}
+
+.copyright {
+    font-family: var(--font-fam-principale);
+    font-size: 0.8em;
+    margin-bottom: 0;
+}
+
+/* Classe pour les icônes */
+.icon {
+    width: 50px;
+}
+
+/* Classe pour les boutons */
+.action-button,
+input[type="submit"],
+input[type="reset"] {
+    width: auto;
+    max-width: max-content;
+    padding: 10px 20px;
+    color: white;
+    background-color: var(--color-sombre);
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    /* font-weight: 300; */
+    transition: all 0.3s ease;
+}
+
+.action-button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: var(--color-main);
+    color: black;
+    border: var(--color-sombre) solid 1px;
+}
+
+
+.text-white {
+    color: white;
+}
+
+
+
+/* ------------- Classe pour les flexbox ------------- */
+.flex {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-item-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+/* ------------- Classe pour les couleur ------------- */
+
+.color-fond {
+    background-color: var(--color-fond);
+}
+
+.color-main {
+    background-color: var(--color-main);
+}
+
+.color-second {
+    background-color: var(--color-sombre);
+}
+
+.color-font {
+    color: var(--color-black);
+}
+
+/* ------------- Header ------------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2b2b2fCC;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    max-height: 300px;
+    max-width: 100vw;
+}
+
+.logo {
+    height: 100px;
+}
+
+header a {
+    width: 10%;
+    padding: 0.5em;
+}
+
+header>a {
+    width: auto;
+    padding: 0.5em;
+    padding-right: 0;
+    z-index: 3000;
+}
+
+.menu-toggle {
+    font-size: 1.5rem;
+    padding: 0.5em;
+}
+
+/* ------------- Navbar ------------- */
+nav {
+    flex-grow: 1;
+}
+
+nav a {
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+/* ------------- Version mobile ------------- */
+@media (max-width: 768px) {
+
+    /* Cache le menu par défaut en version mobile */
+    nav {
+        display: none;
+    }
+
+    /* Affiche le menu burger */
+    .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        z-index: 1001;
+    }
+
+    /* Le menu déroulant qui apparaît en cliquant sur le burger */
+    .nav-menu {
+        display: none;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 999;
+        overflow-y: auto;
+        /* Pour gérer le défilement si le contenu dépasse la hauteur de la fenêtre */
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .nav-menu ul li a {
+        font-size: clamp(0.9rem, 1vw + 0.5rem, 1.8rem);
+    }
+
+
+
+    /* Le logo dans le menu mobile */
+    .nav-menu .logo {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+}
+
+
+/* ------------- Footer ------------- */
+
+footer {
+    background-color: #2b2b2f;
+    bottom: 0;
+    padding-bottom: 0 !important;
+}
+
+footer>a {
+    width: 10%;
+    padding: 0;
+}
+
+/* ------------- Réseaux Sociaux ------------- */
+.logoRS {
+    filter: grayscale(100%) brightness(100%) contrast(60%);
+    /* transition: all 0.3s ease; */
+}
+
+.logoRS:hover {
+    filter: grayscale(0%);
+    /* Supprime le filtre gris au survol */
+}
+
+
+
+
+/* ------------- Style du bouton de retour en haut ------------- */
+.scroll-to-top {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-main);
+    z-index: 300;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--color-sombre);
+}
+
+.scroll-to-top.show {
+    display: flex;
+    /* Affiche le bouton lorsqu'il est visible */
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ------------- Page index.php / Acceuil -------------*/
+.bloc-acceuil-1 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-fond {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Utilise 'cover' pour que l'image remplisse le conteneur */
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.bloc-acceuil-1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.content-block {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    background-color: var(--color-second);
+    border-radius: 8px;
+    z-index: 2;
+}
+
+.content-block h1 {
+    margin: 0;
+}
+
+#img-acceuil-2 {
+    max-height: 700px; 
+    /* object-fit: contain;  */
+}
+
+
+
+/* ------------- Style Page engagement.php et avantage.php ------------- */
+
+
+.bloc_info:nth-child(odd) {
+    background-color: var(--color-main);
+}
+
+.bloc_info:nth-child(even) {
+    background-color: var(--color-second);
+    color : white;
+}
+
+/* Annimation */
+.anim-appear {
+    opacity: 0;
+}
+
+
+.bloc_info {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.bloc_info_wrapper {
+    overflow: hidden; /* Empêche le débordement horizontal */
+}
+
+
+/* ------------- Pour la page engagement.php ------------- */
+.info_engagement .position {
+    display: none;
+}
+
+.info_engagement {
+    transform: translateY(10px);
+    transition: all 1s ease-in-out;
+}
+
+.info_engagement.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* ------------- Pour la page avantage.php ------------- */
+.position {
+    font-size: 7vw;
+    width: 20%;
+}
+
+@media (min-width: 768px) {
+    .bloc_info:nth-child(even).info_avantage {
+        transform: translateX(-100%);
+        transition: all 0.8s ease-in-out;
+    }
+    
+    .bloc_info:nth-child(odd).info_avantage {
+        transform: translateX(100%);
+        transition: all 0.8s ease-in-out;
+    }
+    
+    .bloc_info:nth-child(even).info_avantage.show {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    .bloc_info:nth-child(odd).info_avantage.show {
+        transform: translateX(0);
+        opacity: 1;
+    }    
+}
+@media (max-width: 768px) {
+    .bloc_info.info_avantage{
+        opacity: 1 !important;
+    }
+}
+
+.info_avantage:nth-child(odd) section,
+.info_avantage:nth-child(even) .position {
+    order: 1;
+    text-align: left;
+}
+
+.info_avantage:nth-child(odd) .position,
+.info_avantage:nth-child(even) section {
+    order: 2;
+    text-align: right;
+}
+
+
+/* ----------- Style Page temoignage.php ----------- */
+.img-temoignage {
+    width: 200px;
+    /* Taille fixe pour le conteneur de l'image */
+    height: 200px;
+    /* Hauteur fixe pour garantir un cercle parfait */
+    overflow: hidden;
+    /* Assure que rien dépasse du cercle */
+}
+
+
+.texte_temoignage_blocs {
+    box-sizing: border-box;
+    transition: height 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    margin: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+}
+
+.texte_temoignage_blocs.show {
+    height: auto;
+    /* Hauteur automatique pour afficher le contenu */
+    opacity: 1;
+    /* Opacité pleine */
+}
+
+
+/* ----------- Form / admin.php ----------- */
+
+textarea,
+input,
+select {
+    field-sizing: content;
+    max-width: 100%;
+}
+
+
+textarea,
+input:not([reset]) {
+    min-inline-size: 100px;
+    max-inline-size: 50%;
+}
+
+select {
+    max-block-size: 10;
+    min-inline-size: 20%;
+    max-width: 100%;
+}
+
+label {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.form-admin>article {
+    width: 23%;
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ------------- Styles pour les appareils mobiles ------------- */
+@media (max-width: 768px) {
+    .logo {
+        height: 70px;
+    }
+
+    .form-admin {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-admin>article {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .temoignage {
+        flex-direction: column;
+
+        align-items: center;
+        /* Centre les éléments horizontalement */
+        text-align: center;
+        /* Centre le texte sous l'image */
+    }
+
+    .margin-site {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .mobile-only-width-100 {
+        width: 100%;
+    }
+
+    .img-temoignage {
+        max-width: 300px;
+    }
+
+    .width-67 {
+        width: 100%;
+
+    }
+
+    .modif-flex-mobile {
+        flex-direction: column;
+    }
+
+    .content-block {
+        width: 70%;
+        padding: 20px;
+    }
+}
