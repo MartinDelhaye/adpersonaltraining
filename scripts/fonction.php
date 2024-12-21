@@ -10,7 +10,8 @@
  *
  * @return array : tableau contenant les résultats de la requête
  */
-function obtenirDonnees($info, $table, $filtre = '', $trier = '', $type_fetch = 'fetchAll') {
+function obtenirDonnees($info, $table, $filtre = '', $trier = '', $type_fetch = 'fetchAll')
+{
     global $bdd;
     try {
         $requete = 'SELECT ' . $info . ' FROM ' . $table;
@@ -20,11 +21,11 @@ function obtenirDonnees($info, $table, $filtre = '', $trier = '', $type_fetch = 
         if (!empty($trier)) {
             $requete .= ' ORDER BY ' . $trier;
         }
-        
+
         $stmt = $bdd->query($requete);
         return $stmt->$type_fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        echo $requete."<br>";
+        echo $requete . "<br>";
         die('Erreur : ' . $e->getMessage());
     }
 }
@@ -68,12 +69,12 @@ function infometa()
  *
  * @return void
  */
-function afficherHeader()  
+function afficherHeader()
 {
     $recupLogo = obtenirDonnees("chemin_images, id_images", "images", 'id_images = "logo"', '', 'fetch');
     echo ' <header class="width-100 flex space-between align-item-center text-white">
                     <a href="index.php" title="retour accueil" class="flex justify-content-center">'
-        . afficherImage('Image/Img_BDD/' . $recupLogo['chemin_images'], $recupLogo['id_images'], 'logo AD Personal Training', '') . '
+        . afficherImage('Image/Img_BDD/' . $recupLogo['chemin_images'], $recupLogo['id_images'], 'logo', '') . '
                     </a>
                     <button class="menu-toggle text-center display-none" aria-label="Ouvrir le menu">
                         &#9776;
@@ -102,24 +103,74 @@ function afficherHeader()
 
 /**
  * Affiche le pied de page avec le logo, les liens de réseaux sociaux, 
- * un lien de retour à l'accueil et le copyright.
+ * un lien de retour à l'accueil, les mentions légales, et le plan du site.
  */
 function afficherFooter()
 {
-    $recupLogo = obtenirDonnees("chemin_images, id_images", "images", 'id_images = "logo"', '', 'fetch');
-    echo ' <footer class="width-100 flex column space-between align-item-center justify-content-center text-white padding-2">
-                    <a href="index.php" title="retour accueil" class="flex justify-content-center">'
-        . afficherImage('Image/Img_BDD/' . $recupLogo['chemin_images'], $recupLogo['id_images'], 'logo AD Personal Training', '') . '
-                    </a>';
-    echo '<div class="padding-2"> <h3 class="texte-center">Contacter AD Personal Training :</h3>';
-    afficheResauxSociaux();
-    echo '</div>';
-    if (basename($_SERVER['SCRIPT_NAME']) !== 'index.php') {
-        echo '<a href="index.php" title="retour accueil" class=" texte-center action-button">Retour accueil</a>';
+    // Récupère les informations du logo dans la base de données
+    $logoData = obtenirDonnees("chemin_images, id_images", "images", 'id_images = "logo"', '', 'fetch');
+    // Récupère les données des réseaux sociaux
+    $tabRS = obtenirDonnees("*", "reseaux_sociaux", '', 'pos_reseaux_sociaux', 'fetchAll');
+
+    // Affichage du footer
+    echo ' 
+        <footer class="width-100 flex column space-between align-item-center justify-content-center text-white padding-2">
+            <a href="index.php" title="Retour accueil" class="flex justify-content-center">
+                ' . afficherImage('Image/Img_BDD/' . $logoData['chemin_images'], $logoData['id_images'], 'logo', '') . '
+            </a>';
+
+    echo "<div class='flex gap-1 padding-2 modif-flex-mobile align-item-center'>";
+
+    // Section "Contacter AD Personal Training" avec les réseaux sociaux
+    echo '<div class="width-50"> 
+                <h3 class="texte-center">Contacter AD Personal Training :</h3> 
+                <ul id="blockRS" class="flex row space-between align-items-center justify-content-center gap-1">';
+
+    foreach ($tabRS as $reseauSocial) {
+        // Vérifier si le nom du réseau social est "Mail"
+        if ($reseauSocial['nom_reseaux_sociaux'] === "Mail") {
+            // Générer un lien mailto pour les adresses e-mail
+            $href = "mailto:" . $reseauSocial['lien_reseaux_sociaux'];
+        } else {
+            // Utiliser le lien direct pour les autres réseaux sociaux
+            $href = $reseauSocial['lien_reseaux_sociaux'];
+        }
+
+        // Générer le HTML pour le lien du réseau social
+        echo '<li class=""> <a href="' . $href . '" target="_blank">'
+            . afficherImage(
+                'Image/Reseaux_Sociaux/' . $reseauSocial['logo_reseaux_sociaux'],
+                $reseauSocial['nom_reseaux_sociaux'],
+                'logoRS icon'
+            )
+            . '</a></li>';
     }
-    echo '<p class="texte-center copyright">&copy; ' . date('Y') . ' - AD Personal Training - <a href="mentions-legales.php" title="mentions legales" class="texte-center">Mentions l&eacute;gales</a></p>
-        </footer>';
+
+    echo '</ul>';
+    echo '</div>';
+
+    // Plan du site - liens vers les pages principales
+    echo '<div class="width-50">
+                <h3 class="texte-center">Plan du site :</h3>
+                <ul class="plan-site-list texte-center flex column gap-1">
+                    <li><a href="index.php" title="Présentation">Accueil</a></li>
+                    <li><a href="presentation.php" title="Présentation">Présentation</a></li>
+                    <li><a href="avantage.php" title="Avantages">Avantages</a></li>
+                    <li><a href="engagement.php" title="Engagement">Engagement</a></li>
+                    <li><a href="temoignage.php" title="Témoignages">Témoignages</a></li>
+                    <li><a href="mentions-legales.php" title="Mentions légales">Mentions légales</a></li>
+                </ul>
+            </div>';
+
+    echo "</div>"; // Fermeture du div "flex gap-1"
+    
+    // Affichage des mentions légales et des informations de copyright
+    echo '<p class="texte-center copyright">&copy; ' . date('Y') . ' - AD Personal Training </p>
+    </footer>';
 }
+
+
+
 
 
 /**
@@ -172,7 +223,8 @@ function afficheInfo($tab, $nomTableBDD, $tableCSSGloal, $tableCSSFocus)
     $index = 0;
     foreach ($tab as $focus):
         echo '<div class="' . $tableCSSFocus . '">';
-        if($nomTableBDD == "avantage") echo '<p class="position font-bold">' . $index + 1 . '</p>';
+        if ($nomTableBDD == "avantage")
+            echo '<p class="position font-bold">' . $index + 1 . '</p>';
         echo '<section>';
         echo '<h2>' . $focus['titre_' . $nomTableBDD] . '</h2>';
         echo '<p>' . $focus['texte_' . $nomTableBDD] . '</p>';
@@ -198,47 +250,6 @@ function afficheButtonToTop()
     echo '<button id="scrollToTopBtn" class="scroll-to-top display-none bordure-radius-50">' . afficherImage('Image/flecheHaut.webp', 'fleche', 'icon', '') . '</button>';
 }
 
-/**
- * Affiche les liens vers les réseaux sociaux
- *
- * @return void
- * 
- * Cette fonction affiche les liens vers les réseaux sociaux
- * stockés dans la base de données.
- * Les liens sont ordonnés par rapport à leur position
- * dans la base de données.
- * Pour le réseau social "Mail", un lien mailto est généré
- * au lieu d'un lien direct.
- */
-function afficheResauxSociaux()
-{
-    $tabRS = obtenirDonnees("*", "reseaux_sociaux", '', 'pos_reseaux_sociaux', 'fetchAll');
-    echo '<ul id="blockRS" class="flex row space-between align-items-center justify-content-center gap-1">';
-
-    for ($i = 0; $i < count($tabRS); $i++) {
-        // Vérifier si le nom du réseau social est "Mail"
-        if ($tabRS[$i]['nom_reseaux_sociaux'] === "Mail") {
-            // Générer un lien mailto pour les adresses e-mail
-            $href = "mailto:" . $tabRS[$i]['lien_reseaux_sociaux'];
-        } else {
-            // Utiliser le lien direct pour les autres réseaux sociaux
-            $href = $tabRS[$i]['lien_reseaux_sociaux'];
-        }
-
-        // Générer le HTML pour le lien du réseau social
-        echo '<li class=""> <a href="' . $href . '" target="_blank">'
-            . afficherImage(
-                'Image/Reseaux_Sociaux/' . $tabRS[$i]['logo_reseaux_sociaux'],
-                $tabRS[$i]['nom_reseaux_sociaux'],
-                'logoRS icon'
-            )
-            . '</a></li>';
-    };
-
-    echo '</ul>';
-}
-
-
 // ------------ Fonctions pour les pages admin -------------
 
 
@@ -252,8 +263,8 @@ function afficherHeaderAdmin()
     $recupLogo = obtenirDonnees("chemin_images, id_images", "images", 'id_images = "logo"', '', 'fetch');
     echo ' <header class="width-100 flex space-between align-item-center text-white">
             <a href="index.php" title="retour accueil" class="flex justify-content-center">'
-                . afficherImage('Image/Img_BDD/' . $recupLogo['chemin_images'], $recupLogo['id_images'], 'logo', '') .
-            '</a>
+        . afficherImage('Image/Img_BDD/' . $recupLogo['chemin_images'], $recupLogo['id_images'], 'logo', '') .
+        '</a>
             <a href="adminCompte.php" title="Retour accueil" class="action-button flex justify-content-center">
                 Gérer Compte Admin
             </a>
@@ -281,7 +292,7 @@ function afficherHeaderAdmin()
 function afficheFormSelect($titre, $tabForm, $id = "", $class = "")
 {
     echo '<article id="' . $id . '" class="' . $class . ' color-main">';
-    afficheTitre(3, $titre, "", ""); 
+    afficheTitre(3, $titre, "", "");
     if (isset($tabForm[3])) {
         $paramSup = $tabForm[3];
     } else {
@@ -379,8 +390,7 @@ function prepareTabInputSelect($tab, $nomTab)
     } else if ($nomTab == "users") {
         $colonneTexte = ["username"];
         $paramSup = '';
-    } 
-    else {
+    } else {
         $colonneTexte = ["titre_" . $nomTab];
     }
 
@@ -398,7 +408,7 @@ function prepareTabInputSelect($tab, $nomTab)
 
     $tabInput = [
         ["hidden", "hidden", "", 'tabName', '', $nomTab, ""],
-        ["select", "select", "", "id_" . $nomTab, $paramSup , $tabOption, ""],
+        ["select", "select", "", "id_" . $nomTab, $paramSup, $tabOption, ""],
         ["submit", "", "", "", "", "Validez", ""]
     ];
 
@@ -417,7 +427,7 @@ function prepareTabInputSelect($tab, $nomTab)
  * @return string Le nom de l'image téléchargée.
  *
  * @throws Exception Si le téléchargement du fichier échoue ou si le fichier est invalide.
- */ 
+ */
 
 function downloadImageAndGetURL($serveur, $post, $files, $tabname)
 {
@@ -490,7 +500,8 @@ function downloadImageAndGetURL($serveur, $post, $files, $tabname)
  * @param string $tabName Le nom de la table
  * @return array Un tableau contenant les éléments de formulaire
  */
-function prepareTabInput($tabName){
+function prepareTabInput($tabName)
+{
     switch ($tabName) {
         case "engagement":
         case "avantage":
@@ -546,14 +557,14 @@ function prepareTabInput($tabName){
  * 
  * Cette fonction utilise les informations de session pour déterminer si l'utilisateur a une session valide.
  */
-function isUserLoggedIn(){
+function isUserLoggedIn()
+{
     startSession();
     if (!isset($_SESSION['id_users'])) {
         // Rediriger l'utilisateur non authentifié vers la page de connexion
         header('Location: adminIdentification.php');
         exit();
-    }
-    else {
+    } else {
         // Récupère les informations de l'utilisateur depuis la base de données
         $userData = obtenirDonnees("*", "users", "id_users = " . intval($_SESSION['id_users']), "", 'fetch');
         if ($userData['role'] === 'user') {
