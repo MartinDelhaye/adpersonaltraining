@@ -54,7 +54,7 @@ function infometa()
             <!-- Link CSS -->
             <link href="CSS/style.css" rel="stylesheet" type="text/css"> 
             <!-- Link JS -->
-            <script src="/Site_ADPT/scripts/scripts.js"></script>
+            <script src="../scripts/scripts.js"></script>
             <!-- Link Font -->
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
@@ -73,7 +73,7 @@ function afficherHeader()
     $recupLogo = obtenirDonnees("chemin_images, id_images", "images", 'id_images = "logo"', '', 'fetch');
     echo ' <header class="width-100 flex space-between align-item-center text-white">
                     <a href="index.php" title="retour accueil" class="flex justify-content-center">'
-        . afficherImage('Image/Img_BDD/' . $recupLogo['chemin_images'], $recupLogo['id_images'], 'logo', '') . '
+        . afficherImage('Image/Img_BDD/' . $recupLogo['chemin_images'], $recupLogo['id_images'], 'logo AD Personal Training', '') . '
                     </a>
                     <button class="menu-toggle text-center display-none" aria-label="Ouvrir le menu">
                         &#9776;
@@ -109,7 +109,7 @@ function afficherFooter()
     $recupLogo = obtenirDonnees("chemin_images, id_images", "images", 'id_images = "logo"', '', 'fetch');
     echo ' <footer class="width-100 flex column space-between align-item-center justify-content-center text-white padding-2">
                     <a href="index.php" title="retour accueil" class="flex justify-content-center">'
-        . afficherImage('Image/Img_BDD/' . $recupLogo['chemin_images'], $recupLogo['id_images'], 'logo', '') . '
+        . afficherImage('Image/Img_BDD/' . $recupLogo['chemin_images'], $recupLogo['id_images'], 'logo AD Personal Training', '') . '
                     </a>';
     echo '<div class="padding-2"> <h3 class="texte-center">Contacter AD Personal Training :</h3>';
     afficheResauxSociaux();
@@ -117,7 +117,7 @@ function afficherFooter()
     if (basename($_SERVER['SCRIPT_NAME']) !== 'index.php') {
         echo '<a href="index.php" title="retour accueil" class=" texte-center action-button">Retour accueil</a>';
     }
-    echo '<p class="texte-center copyright">&copy; ' . date('Y') . ' - Tous droits reservés - AD Personal Training</p>
+    echo '<p class="texte-center copyright">&copy; ' . date('Y') . ' - AD Personal Training - <a href="mentions-legales.php" title="mentions legales" class="texte-center">Mentions l&eacute;gales</a></p>
         </footer>';
 }
 

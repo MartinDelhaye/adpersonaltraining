@@ -12,7 +12,7 @@
 
 
     // Chemin absolu site 
-    $chemin_absolu_site = "C:/xampp/htdocs/Site_ADPT";
+    $chemin_absolu_site = "C:/xampp/htdocs/adpersonaltraining";
 
     include($chemin_absolu_site."/scripts/fonction.php");
 
