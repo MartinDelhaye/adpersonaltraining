@@ -1,6 +1,5 @@
 <?php
 include ("config/config.php");
-
 ?>
 <!doctype html>
 <html lang="fr">
@@ -8,7 +7,6 @@ include ("config/config.php");
 <head>
     <?php infometa() ?>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mentions légales de AD PERSONAL TRAINING, coach sportif à domicile ou en entreprise, inscrite au RCS Lyon sous le numéro SIREN 949 102 503.">
     <meta name="keywords" content="mentions légales, coach sportif, AD PERSONAL TRAINING, Lyon, SASU">
     <title>Mentions Légales - AD PERSONAL TRAINING</title>
@@ -35,28 +33,22 @@ include ("config/config.php");
         </section>
 
         <section>
-            <h2>3. Données personnelles</h2>
-            <p>Conformément à la loi Informatique et Libertés du 6 janvier 1978 modifiée et au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition sur les données vous concernant.</p>
-            <p>Pour exercer ces droits, vous pouvez contacter le responsable du traitement des données à l’adresse suivante : <strong>[Adresse email]</strong>.</p>
-        </section>
-
-        <section>
-            <h2>4. Responsabilité</h2>
+            <h2>3. Responsabilité</h2>
             <p><strong>AD PERSONAL TRAINING</strong> met tout en œuvre pour assurer l'exactitude des informations diffusées sur le site, mais ne saurait être tenu responsable des erreurs, omissions, ou imprécisions survenant malgré tous les efforts fournis.</p>
         </section>
 
         <section>
-            <h2>5. Cookies</h2>
-            <p>Le site utilise des cookies pour améliorer l'expérience utilisateur. En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies conformément à notre politique de confidentialité.</p>
+            <h2>4. Cookies</h2>
+            <p>Aucun de ces cookies n'est utilisé pour collecter des données personnelles des utilisateurs.</p>
         </section>
 
         <section>
-            <h2>6. Loi applicable</h2>
+            <h2>5. Loi applicable</h2>
             <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, le tribunal compétent sera celui du ressort de Lyon.</p>
         </section>
 
         <section>
-            <h2>7. Modification des mentions légales</h2>
+            <h2>6. Modification des mentions légales</h2>
             <p><strong>AD PERSONAL TRAINING</strong> se réserve le droit de modifier les présentes mentions légales à tout moment. Les utilisateurs sont invités à consulter régulièrement cette page.</p>
         </section>
     </main>
