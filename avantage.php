@@ -20,16 +20,14 @@ $tabAvantage = obtenirDonnees("*", "avantage", '', 'pos_avantage', 'fetchAll');
     <main>
         <?php
         afficheTitre(1, "Les Avantages d'avoir un coach", "texte-center", "");
-        // echo '<div class="bloc_info_wrapper">';
         if (!empty($tabAvantage)):
             afficheInfo($tabAvantage, 'avantage', 'flex column bloc_info_wrapper', 'anim-appear bloc_info info_avantage flex row align-item-center padding-2');
         endif;
-        // echo  '</div>';
         ?>
     </main>
     <?php 
     afficherFooter();
-    // afficheButtonToTop();
+    afficheButtonToTop();
     ?>
 
 </body>
