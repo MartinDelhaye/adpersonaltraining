@@ -259,9 +259,9 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #2b2b2fCC;
+    background-color: var(--color-sombre);
     z-index: 1000;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
     max-height: 300px;
     height: 70px;
     width: 100vw;
@@ -375,7 +375,7 @@ nav a:hover::after {
 /* ------------- Footer ------------- */
 
 footer {
-    background-color: #2b2b2f;
+    background-color: var(--color-sombre);
     bottom: 0;
     padding-bottom: 0 !important;
 }

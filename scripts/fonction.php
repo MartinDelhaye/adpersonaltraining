@@ -82,13 +82,13 @@ function afficherHeader()
                     <nav class="flex justify-content-center align-item-center padding-2 nav-menu">
                         <ul class="flex row gap-1 ">
                             <li>
-                                <a href="index.php">Acceuil</a>
+                                <a href="index.php">Accueil</a>
                             </li>
                             <li>
-                                <a href="presentation.php">Presentation</a>
+                                <a href="presentation.php">Présentation</a>
                             </li>
                             <li>
-                                <a href="avantage.php">Avantages</a>
+                                <a href="avantage.php">FAQ</a>
                             </li>
                             <li>
                                 <a href="engagement.php">Engagements</a>
@@ -114,12 +114,10 @@ function afficherFooter()
 
     // Affichage du footer
     echo ' 
-        <footer class="width-100 flex column space-between align-item-center justify-content-center text-white padding-2">
+        <footer class="width-100 flex column space-between align-item-center justify-content-center text-white padding-2 gap-1">
             <a href="index.php" title="Retour accueil" class="flex justify-content-center">
                 ' . afficherImage('Image/Img_BDD/' . $logoData['chemin_images'], $logoData['id_images'], 'logo', '') . '
             </a>';
-
-    echo "<div class='flex gap-1 padding-2 modif-flex-mobile align-item-center'>";
 
     // Section "Contacter AD Personal Training" avec les réseaux sociaux
     echo '<div class="width-50"> 
@@ -148,21 +146,6 @@ function afficherFooter()
 
     echo '</ul>';
     echo '</div>';
-
-    // Plan du site - liens vers les pages principales
-    echo '<div class="width-50">
-                <h3 class="texte-center">Plan du site :</h3>
-                <ul class="plan-site-list texte-center flex column gap-1">
-                    <li><a href="index.php" title="Présentation">Accueil</a></li>
-                    <li><a href="presentation.php" title="Présentation">Présentation</a></li>
-                    <li><a href="avantage.php" title="Avantages">Avantages</a></li>
-                    <li><a href="engagement.php" title="Engagement">Engagement</a></li>
-                    <li><a href="temoignage.php" title="Témoignages">Témoignages</a></li>
-                    <li><a href="mentions-legales.php" title="Mentions légales">Mentions légales</a></li>
-                </ul>
-            </div>';
-
-    echo "</div>"; // Fermeture du div "flex gap-1"
     
     // Affichage des mentions légales et des informations de copyright
     echo '<p class="texte-center copyright">&copy; ' . date('Y') . ' - AD Personal Training </p>
