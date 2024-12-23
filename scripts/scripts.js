@@ -61,9 +61,14 @@ function handleMobileMenu() {
 
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
+            const isExpanded = navMenu.classList.contains('show');
+            toggleClass(navMenu, 'show', !isExpanded); 
+            menuToggle.innerHTML = isExpanded ? '&#9776;' : '&times;';
+        });
+        navMenu.addEventListener('click', () => {
             const isExpanded = toggleClass(navMenu, 'show');
             menuToggle.innerHTML = isExpanded ? '&times;' : '&#9776;';
-        });
+        })
     }
 }
 
@@ -73,8 +78,9 @@ function handleMobileMenu() {
 function setupScrollToTopButton() {
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     if (scrollToTopBtn) {
+        const pointTop = 200;
         window.addEventListener('scroll', () => {
-            const shouldShow = document.body.scrollTop > 200 || document.documentElement.scrollTop > 200;
+            const shouldShow = document.body.scrollTop > pointTop || document.documentElement.scrollTop > pointTop;
             toggleClass(scrollToTopBtn, 'show', shouldShow);
         });
 
