@@ -55,17 +55,8 @@ $tabTemoignage = obtenirDonnees("*", "temoignage", '', 'pos_temoignage', 'fetchA
                             <?php afficheTitre(3, $sous_titre, "", ""); ?>
             
                             <p><?php echo $tabTemoignage[$i]["texte_reformuler_temoignage"]; ?></p>
-            
-                            <br>
-                            <button id='texte_temoignage_boutton_<?php echo $i; ?>' class='display align-item-center justify-content-center justify-content padding-2 texte_temoignage_buttons'>
-                                <?php echo afficherImage("Image/flecheBas.webp", "fleche", "icon", ""); ?>
-                            </button>
                         </div>
                     </div>
-            
-                    <p id='texte_temoignage_bloc_<?php echo $i; ?>' class='texte_temoignage_blocs padding-2'>
-                        <?php echo nl2br(htmlspecialchars($tabTemoignage[$i]["texte_temoignage"])); ?>
-                    </p>
                 </article>
             <?php endfor;             
         endif;
