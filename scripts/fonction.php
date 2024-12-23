@@ -141,7 +141,7 @@ function afficherFooter()
     echo '</div>';
     
     // Affichage des mentions légales et des informations de copyright
-    echo '<p class="texte-center copyright">&copy; ' . date('Y') . ' - AD Personal Training </p>
+    echo '<a href="mentions-legales.php" class="width-100"><p class="texte-center copyright">&copy; ' . date('Y') . ' - AD Personal Training - Mentions Légales</p></a>
     </footer>';
 }
 
