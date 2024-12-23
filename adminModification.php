@@ -99,11 +99,11 @@ $tabInputs = $tabTemp;
 
         // Affichage d'une image associée au type de la table
         if ($_POST["tabName"] == "temoignage") {
-            echo afficherImage("../Site_ADPT/Image/Temoignage/".$aModif["img_temoignage"], $aModif["nom_temoignage"]." ".$aModif["prenom_temoignage"], "bordure-radius-50 width-33 img-temoignage", "", "");
+            echo afficherImage("Image/Temoignage/".$aModif["img_temoignage"], $aModif["nom_temoignage"]." ".$aModif["prenom_temoignage"], "bordure-radius-50 width-33 img-temoignage", "", "");
         } else if ($_POST["tabName"] == "reseaux_sociaux") {
-            echo afficherImage("../Site_ADPT/Image/Reseaux_Sociaux/".$aModif["logo_reseaux_sociaux"], $aModif["nom_reseaux_sociaux"], "width-33 img-temoignage", "", "");
+            echo afficherImage("Image/Reseaux_Sociaux/".$aModif["logo_reseaux_sociaux"], $aModif["nom_reseaux_sociaux"], "width-33 img-temoignage", "", "");
         } else if ($_POST["tabName"] == "images") {
-            echo afficherImage("../Site_ADPT/Image/Img_BDD/".$aModif["chemin_images"], $aModif["id_images"], "width-33 img-temoignage", "", "");
+            echo afficherImage("Image/Img_BDD/".$aModif["chemin_images"], $aModif["id_images"], "width-33 img-temoignage", "", "");
         }
         // Affichage du formulaire complet
         afficheFormComplet("adminModifier.php", "POST", $tabInputs, 'enctype="multipart/form-data" class="flex column align-item-center justify-content-center color-main formNoReturn" ');
