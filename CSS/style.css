@@ -3,25 +3,12 @@
     --color-fond: #ffffff;
     --color-black: #2b2b2f;
     --color-white: white;
-    --color-main: #C0C0C0;
+    --color-main: #65716e;
     --color-second: #898989;
-    --color-sombre: #65716e;
+    --color-trois: #C0C0C0;
     --font-fam-principale: Montserrat, sans-serif;
     --font-fam-secondaire: Oswald, sans-serif;
 }
-
-/* 65716e */
-/* :root {
-    --color-fond: #ffffff;
-    --color-black: #2b2b2f;
-    --color-white: white;
-    --color-main: #C0C0C0;
-    --color-second: #898989;
-    --color-sombre: #5B5B5B;
-    --font-fam-principale: Montserrat, sans-serif;
-    --font-fam-secondaire: Oswald, sans-serif;
-} */
-
 
 * {
     box-sizing: border-box;
@@ -148,7 +135,7 @@ a {
 }
 
 .bordure-10 {
-    border: 10px solid var(--color-main);
+    border: 10px solid var(--color-trois);
 }
 
 .bordure-radius-20 {
@@ -183,12 +170,11 @@ input[type="reset"] {
     width: auto;
     max-width: max-content;
     padding: 10px 20px;
-    color: white;
-    background-color: var(--color-sombre);
+    color: black;
+    background-color: var(--color-trois);
     border: none;
     border-radius: 5px;
     text-align: center;
-    /* font-weight: 300; */
     transition: all 0.3s ease;
 }
 
@@ -196,8 +182,8 @@ input[type="reset"] {
 input[type="submit"]:hover,
 input[type="reset"]:hover {
     background-color: var(--color-main);
-    color: black;
-    border: var(--color-sombre) solid 1px;
+    color: white;
+    border: var(--color-main) solid 1px;
 }
 
 
@@ -237,17 +223,12 @@ input[type="reset"]:hover {
 }
 
 /* ------------- Classe pour les couleur ------------- */
-
-.color-fond {
-    background-color: var(--color-fond);
-}
-
 .color-main {
     background-color: var(--color-main);
 }
 
 .color-second {
-    background-color: var(--color-sombre);
+    background-color: var(--color-second);
 }
 
 .color-font {
@@ -259,7 +240,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--color-sombre);
+    background-color: var(--color-main);
     z-index: 1000;
     /* backdrop-filter: blur(10px); */
     max-height: 300px;
@@ -375,7 +356,7 @@ nav a:hover::after {
 /* ------------- Footer ------------- */
 
 footer {
-    background-color: var(--color-sombre);
+    background-color: var(--color-main);
     bottom: 0;
     padding-bottom: 0 !important;
 }
@@ -406,12 +387,12 @@ footer>a {
     right: 10px;
     width: 50px;
     height: 50px;
-    background-color: var(--color-main);
+    background-color: var(--color-trois);
     z-index: 300;
 }
 
 .scroll-to-top:hover {
-    background-color: var(--color-sombre);
+    background-color: var(--color-main);
 }
 
 .scroll-to-top.show {
@@ -436,7 +417,6 @@ footer>a {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Utilise 'cover' pour que l'image remplisse le conteneur */
     transform: translate(-50%, -50%);
     z-index: 0;
 }
@@ -478,7 +458,7 @@ footer>a {
 
 
 .bloc_info:nth-child(odd) {
-    background-color: var(--color-main);
+    background-color: var(--color-trois);
 }
 
 .bloc_info:nth-child(even) {
@@ -503,10 +483,6 @@ footer>a {
 
 
 /* ------------- Pour la page engagement.php ------------- */
-.info_engagement .position {
-    display: none;
-}
-
 .info_engagement {
     transform: translateY(10px);
     transition: all 1s ease-in-out;
@@ -566,31 +542,8 @@ footer>a {
 /* ----------- Style Page temoignage.php ----------- */
 .img-temoignage {
     width: 200px;
-    /* Taille fixe pour le conteneur de l'image */
     height: 200px;
-    /* Hauteur fixe pour garantir un cercle parfait */
-    overflow: hidden;
-    /* Assure que rien dépasse du cercle */
 }
-
-
-.texte_temoignage_blocs {
-    box-sizing: border-box;
-    transition: height 0.8s ease-in-out, opacity 0.8s ease-in-out;
-    margin: 0;
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-
-}
-
-.texte_temoignage_blocs.show {
-    height: auto;
-    /* Hauteur automatique pour afficher le contenu */
-    opacity: 1;
-    /* Opacité pleine */
-}
-
 
 /* ----------- Form / admin.php ----------- */
 
@@ -637,9 +590,22 @@ form {
 
 /* ------------- Styles pour les appareils mobiles ------------- */
 @media (max-width: 768px) {
-    /* .logo {
-        height: 70px;
-    } */
+
+    .image-fond {
+        position: absolute;
+        top: 70px; /* Décalage de 70px depuis le haut */
+        left: 50%;
+        width: 100%;
+        height: auto; /* Permet de mieux s'ajuster */
+        object-fit: contain; /* Adapte l'image pour éviter qu'elle ne coupe trop */
+        transform: translateX(-50%); /* Centrer horizontalement */
+        z-index: 0;
+    }
+    
+    .bloc-acceuil-1 {
+        height: auto; /* Ajuste la hauteur pour éviter les débordements */
+        padding: 10px; /* Ajoute des marges pour améliorer la lisibilité */
+    }
 
     .form-admin {
         flex-direction: column;
