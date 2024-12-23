@@ -19,7 +19,7 @@ $tabEngagement = obtenirDonnees("*", "engagement", '', 'pos_engagement', 'fetchA
     ?>
     <main>
         <?php
-        afficheTitre(1, "Les Engagements de ADPT", "texte-center", "");
+        afficheTitre(1, "Savoir-faire", "texte-center", "");
         if (!empty($tabEngagement)):
             afficheInfo($tabEngagement, 'engagement', 'flex column', 'anim-appear bloc_info info_engagement flex row justify-content-center texte-center padding-2');
         endif;
