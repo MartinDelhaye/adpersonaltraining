@@ -4,8 +4,18 @@ include("config/config.php");
 $tabEngagement = obtenirDonnees("*", "engagement", '', 'pos_engagement', 'fetchAll');
 
 // Récupération des textes de la bdd
-$paragraphe_presentation = obtenirDonnees("contenu", "textes", 'id_textes= "texte_presentation" ', "", 'fetch');
-$paragraphe_formations = obtenirDonnees("contenu", "textes", 'id_textes= "texte_formations" ', "", 'fetch');
+$textes = obtenirDonnees("id_textes, contenu", "textes", 'id_textes IN ("Titre presentation", "texte_presentation", "Titre formations", "texte_formations")', "", 'fetchAll');
+
+// Initialiser un tableau pour organiser les données
+$data = [];
+foreach ($textes as $texte) {
+    $data[$texte['id_textes']] = $texte['contenu'];
+}
+
+$titre_presentation = $data['Titre presentation'];
+$paragraphe_presentation = $data['texte_presentation'];
+$titre_formations = $data['Titre formations'];
+$paragraphe_formations = $data['texte_formations'];
 
 $recupImagePresentation = obtenirDonnees("chemin_images, id_images", "images", 'id_images = "Image_Presentation"', '', 'fetch');
 
@@ -28,8 +38,8 @@ $recupImagePresentation = obtenirDonnees("chemin_images, id_images", "images", '
         <div class="flex row space-between align-item-center modif-flex-mobile padding-2 padding-right-0 gap-1 height-page">
             <section class="width-67">
             <?php
-            afficheTitre(2, "Arnaud DESCHAMP", "", "");
-            echo "<p>". nl2br(htmlspecialchars($paragraphe_presentation['contenu']))."</p>";
+            afficheTitre(1, htmlspecialchars($titre_presentation), "", "");
+            echo "<p>". nl2br(htmlspecialchars($paragraphe_presentation))."</p>";
             ?>
             </section>
             <?php 
@@ -39,8 +49,8 @@ $recupImagePresentation = obtenirDonnees("chemin_images, id_images", "images", '
 
         <div class="flex column space-between color-second text-white padding-2">   
             <?php
-            afficheTitre(2, "Formations", "", "");
-            echo "<p>". nl2br(htmlspecialchars($paragraphe_formations['contenu']))."</p>";
+            afficheTitre(2, htmlspecialchars($titre_formations), "", "");
+            echo "<p>". nl2br(htmlspecialchars($paragraphe_formations))."</p>";
             ?>
         </div>
     </main>

@@ -1,8 +1,8 @@
 <?php
 include("config/config.php");
 
+$Titre_tecmoignage = htmlspecialchars(obtenirDonnees("contenu", "textes", 'id_textes= "Titre temoignage" ', "", 'fetch')['contenu']);
 $tabTemoignage = obtenirDonnees("prenom_temoignage, nom_temoignage, metier_temoignage, age_temoignage, texte_temoignage, img_temoignage", "temoignage", '', 'pos_temoignage', 'fetchAll');
-
 ?>
 <!doctype html>
 <html lang="fr">
@@ -20,7 +20,7 @@ $tabTemoignage = obtenirDonnees("prenom_temoignage, nom_temoignage, metier_temoi
     ?>
     <main>
         <?php
-        afficheTitre(1, "Témoignages", "texte-center", "");   
+        afficheTitre(1, $Titre_tecmoignage, "texte-center", "");   
         if (!empty($tabTemoignage)):
         ?>
             <section>

@@ -1,6 +1,7 @@
 <?php
 include("config/config.php");
 
+$Titre_engagement = htmlspecialchars(obtenirDonnees("contenu", "textes", 'id_textes= "Titre engagement" ', "", 'fetch')['contenu']);
 $tabEngagement = obtenirDonnees("*", "engagement", '', 'pos_engagement', 'fetchAll');
 ?>
 <!doctype html>
@@ -19,7 +20,7 @@ $tabEngagement = obtenirDonnees("*", "engagement", '', 'pos_engagement', 'fetchA
     ?>
     <main>
         <?php
-        afficheTitre(1, "Savoir-faire", "texte-center", "");
+        afficheTitre(1, $Titre_engagement, "texte-center", "");
         if (!empty($tabEngagement)):
             afficheInfo($tabEngagement, 'engagement', 'flex column', 'anim-appear bloc_info info_engagement flex row justify-content-center texte-center padding-2');
         endif;

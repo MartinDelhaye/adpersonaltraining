@@ -1,6 +1,7 @@
 <?php
 include("config/config.php");
 
+$Titre_engagement = htmlspecialchars(obtenirDonnees("contenu", "textes", 'id_textes= "Titre engagement" ', "", 'fetch')['contenu']);
 $tabAvantage = obtenirDonnees("*", "avantage", '', 'pos_avantage', 'fetchAll');
 ?>
 <!doctype html>
