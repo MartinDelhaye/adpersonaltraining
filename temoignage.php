@@ -1,10 +1,8 @@
 <?php
 include("config/config.php");
 
-$tabTemoignage = obtenirDonnees("*", "temoignage", '', 'pos_temoignage', 'fetchAll');
+$tabTemoignage = obtenirDonnees("prenom_temoignage, nom_temoignage, metier_temoignage, age_temoignage, texte_temoignage, img_temoignage", "temoignage", '', 'pos_temoignage', 'fetchAll');
 
-// Vérification de $tabTemoignage
-// print_r($tabTemoignage);
 ?>
 <!doctype html>
 <html lang="fr">
@@ -54,7 +52,7 @@ $tabTemoignage = obtenirDonnees("*", "temoignage", '', 'pos_temoignage', 'fetchA
                             ?>
                             <?php afficheTitre(3, $sous_titre, "", ""); ?>
             
-                            <p><?php echo $tabTemoignage[$i]["texte_reformuler_temoignage"]; ?></p>
+                            <p><?php echo $tabTemoignage[$i]["texte_temoignage"]; ?></p>
                         </div>
                     </div>
                 </article>

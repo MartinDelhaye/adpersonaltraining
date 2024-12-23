@@ -493,7 +493,6 @@ function prepareTabInput($tabName)
                 ["text", "prenom", "", "prenom_temoignage", "", "", "Prénom : "],
                 ["text", "metier", "", "metier_temoignage", "", "", "Métier : "],
                 ["number", "", "", "age_temoignage", 'min ="0"', "", "Age : "],
-                ["textarea", "texte", "", "texte_reformuler_temoignage", 'rows="50" cols="50"', "", "Texte reformuler : "],
                 ["textarea", "texte", "", "texte_temoignage", 'rows="50" cols="50"', "", "Texte : "],
                 ["file", "", "", "img_temoignage", "", "", "Importer la photo : "]
             ];

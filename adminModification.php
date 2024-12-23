@@ -39,7 +39,6 @@ switch ($_POST["tabName"]) {
             ["text", "prenom", "", "prenom_temoignage", "required", $aModif["prenom_" . $_POST["tabName"]], "Prénom : "],
             ["text", "metier", "", "metier_temoignage", "", $aModif["metier_" . $_POST["tabName"]], "Métier : "],
             ["number", "", "", "age_temoignage", 'min ="0"', $aModif["age_" . $_POST["tabName"]], "Age : "],
-            ["textarea", "texte", "", "texte_reformuler_temoignage", 'rows="50" cols="50" required', $aModif["texte_reformuler_" . $_POST["tabName"]], "Texte reformuler : "],
             ["textarea", "texte", "", "texte_temoignage", 'rows="50" cols="50" required', $aModif["texte_" . $_POST["tabName"]], "Texte : "],
             ["file", "", "", "img_temoignage", "", "", "Nouvelle photo : "]           
         ];
