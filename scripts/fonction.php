@@ -125,14 +125,7 @@ function afficherFooter()
                 <ul id="blockRS" class="flex row space-between align-items-center justify-content-center gap-1">';
 
     foreach ($tabRS as $reseauSocial) {
-        // Vérifier si le nom du réseau social est "Mail"
-        if ($reseauSocial['nom_reseaux_sociaux'] === "Mail") {
-            // Générer un lien mailto pour les adresses e-mail
-            $href = "mailto:" . $reseauSocial['lien_reseaux_sociaux'];
-        } else {
-            // Utiliser le lien direct pour les autres réseaux sociaux
-            $href = $reseauSocial['lien_reseaux_sociaux'];
-        }
+        $href = $reseauSocial['lien_reseaux_sociaux'];
 
         // Générer le HTML pour le lien du réseau social
         echo '<li class=""> <a href="' . $href . '" target="_blank">'
