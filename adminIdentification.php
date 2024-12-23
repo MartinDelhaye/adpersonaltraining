@@ -43,11 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="description" content="Administration du Site AD Personal Training" />
     <title>Identification</title>
 </head>
-<body class="flex column align-item-center justify-content-center color-second">
-    <main class="color-main padding-2 bordure-radius-20 width-67">
-        <div >
+<body class="flex column align-item-center justify-content-center color-main">
+    <main class="color-second padding-2 bordure-radius-20 width-67 text-white">
+        <div>
             <?php
-            afficheTitre(1, "Identification", "texte-center", "");   
+            afficheTitre(1, "Identification", "texte-center text-white", "");   
             ?>
             <form action="" method="POST" class="flex column gap-1 align-item-center justify-content-center">
                 Login : <input type="text" name="username" required>
