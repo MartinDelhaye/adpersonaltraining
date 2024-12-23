@@ -17,7 +17,7 @@ $recupImagePresentation = obtenirDonnees("chemin_images, id_images", "images", '
     <?php infometa() ?>
     <meta name="keywords" content="Arnaud Deschamp, présentation, coach sportif, passion pour le sport, histoire, AD Personal Training">
     <meta name="description" content="Découvrez l'histoire d'Arnaud Deschamp, fondateur d'AD Personal Training, une entreprise dédiée au coaching sportif sur mesure depuis 2020." />
-    <title>Qui Sommes-Nous ? - AD Personal Training</title>
+    <title>Qui Je suis ? - AD Personal Training</title>
 </head>
 
 <body>
