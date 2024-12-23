@@ -57,8 +57,8 @@ if ($_POST["tabName"] == "avantage" || $_POST["tabName"] == "engagement") {
     $requete_Colonne .= "titre_".$_POST["tabName"].", texte_" . $_POST["tabName"].", pos_" . $_POST["tabName"];
     $requete_VALUES .= ":titre_".$_POST["tabName"].", :texte_" . $_POST["tabName"].", :pos_" . $_POST["tabName"];
 } elseif ($_POST["tabName"] == "temoignage") {
-    $requete_Colonne .= "nom_".$_POST["tabName"].", prenom_".$_POST["tabName"].", texte_" . $_POST["tabName"].", texte_reformuler_" . $_POST["tabName"].", metier_" . $_POST["tabName"].", age_" . $_POST["tabName"].", pos_" . $_POST["tabName"];
-    $requete_VALUES .= ":nom_".$_POST["tabName"].", :prenom_".$_POST["tabName"].", :texte_" . $_POST["tabName"].", :texte_reformuler_" . $_POST["tabName"].", :metier_" . $_POST["tabName"].", :age_" . $_POST["tabName"].", :pos_" . $_POST["tabName"];
+    $requete_Colonne .= "nom_".$_POST["tabName"].", prenom_".$_POST["tabName"].", texte_" . $_POST["tabName"].", metier_" . $_POST["tabName"].", age_" . $_POST["tabName"].", pos_" . $_POST["tabName"];
+    $requete_VALUES .= ":nom_".$_POST["tabName"].", :prenom_".$_POST["tabName"].", :texte_" . $_POST["tabName"].", :metier_" . $_POST["tabName"].", :age_" . $_POST["tabName"].", :pos_" . $_POST["tabName"];
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["img_".$_POST["tabName"]])) {
         if ($_FILES["img_".$_POST["tabName"]]["error"] === UPLOAD_ERR_OK) {
@@ -102,7 +102,6 @@ if ($_POST["tabName"] == "avantage" || $_POST["tabName"] == "engagement") {
     $requete_preparee->bindValue(':nom_'. $_POST["tabName"], $_POST["nom_". $_POST["tabName"]], PDO::PARAM_STR);
     $requete_preparee->bindValue(':prenom_'. $_POST["tabName"], $_POST["prenom_". $_POST["tabName"]], PDO::PARAM_STR);
     $requete_preparee->bindValue(':texte_'. $_POST["tabName"], $_POST["texte_". $_POST["tabName"]], PDO::PARAM_STR);
-    $requete_preparee->bindValue(':texte_reformuler_'. $_POST["tabName"], $_POST["texte_reformuler_". $_POST["tabName"]], PDO::PARAM_STR);
     $requete_preparee->bindValue(':metier_'. $_POST["tabName"], $_POST["metier_". $_POST["tabName"]], PDO::PARAM_STR);
 
     // Gestion de l'âge : convertir la valeur vide en NULL
