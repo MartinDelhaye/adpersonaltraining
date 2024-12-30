@@ -387,8 +387,10 @@ footer>a {
     right: 10px;
     width: 50px;
     height: 50px;
+    opacity: 0;
     background-color: var(--color-trois);
     z-index: 300;
+    transition: all 0.3s ease;
 }
 
 .scroll-to-top:hover {
@@ -396,8 +398,6 @@ footer>a {
 }
 
 .scroll-to-top.show {
-    display: flex;
-    /* Affiche le bouton lorsqu'il est visible */
     opacity: 1;
     visibility: visible;
 }

@@ -223,7 +223,7 @@ function afficheInfo($tab, $nomTableBDD, $tableCSSGloal, $tableCSSFocus)
  */
 function afficheButtonToTop()
 {
-    echo '<button id="scrollToTopBtn" class="scroll-to-top display-none bordure-radius-50">' . afficherImage('Image/flecheHaut.webp', 'fleche', 'icon', '') . '</button>';
+    echo '<button id="scrollToTopBtn" class="scroll-to-top bordure-radius-50">' . afficherImage('Image/flecheHaut.webp', 'fleche', 'icon', '') . '</button>';
 }
 
 // ------------ Fonctions pour les pages admin -------------
