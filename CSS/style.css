@@ -13,10 +13,8 @@
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
-    transition: all 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
-
-
 
 body {
     background-color: var(--color-fond);
@@ -37,12 +35,10 @@ input[type="submit"] {
     all: unset;
 }
 
-/* Empeche la deformation de l'image */
 img {
     object-fit: cover;
 }
 
-/* Remet le cursor sur les liens */
 a,
 .scroll-to-top,
 .action-button,
@@ -58,7 +54,6 @@ textarea {
 /* ------------- Police d'ecriture ------------- */
 h1 {
     font-weight: normal;
-    /* Pour enlever le gras */
     color: var(--color-black);
     font-size: clamp(1.30rem, 1.9vw + 1rem, 2.7rem);
 }
@@ -97,10 +92,6 @@ a {
     padding: 2%;
 }
 
-/* .padding-0{
-    padding: 0;
-} */
-
 .padding-right-0 {
     padding-right: 0;
 }
@@ -130,7 +121,6 @@ a {
 }
 
 .height-page {
-    /* height: 100vh; */
     min-height: 100vh;
 }
 
@@ -143,7 +133,6 @@ a {
 }
 
 .bordure-radius-no-right {
-    /* border-radius : 0 20px 20px 0; */
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
@@ -158,12 +147,14 @@ a {
     margin-bottom: 0;
 }
 
-/* Classe pour les icônes */
+.logo {
+    height: 60px;
+}
+
 .icon {
     width: 50px;
 }
 
-/* Classe pour les boutons */
 .action-button,
 input[type="submit"],
 input[type="reset"] {
@@ -186,12 +177,9 @@ input[type="reset"]:hover {
     border: var(--color-main) solid 1px;
 }
 
-
 .text-white {
     color: white;
 }
-
-
 
 /* ------------- Classe pour les flexbox ------------- */
 .flex {
@@ -223,7 +211,7 @@ input[type="reset"]:hover {
 }
 
 /* ------------- Classe pour les couleur ------------- */
-.color-main {
+.bg-color-main {
     background-color: var(--color-main);
 }
 
@@ -242,14 +230,9 @@ header {
     left: 0;
     background-color: var(--color-main);
     z-index: 1000;
-    /* backdrop-filter: blur(10px); */
     max-height: 300px;
     height: 70px;
     width: 100vw;
-}
-
-.logo {
-    height: 60px;
 }
 
 header a {
@@ -269,6 +252,9 @@ header>a {
     padding: 0.5em;
 }
 
+main {
+    padding-top: 70px;
+}
 /* ------------- Navbar ------------- */
 nav {
     flex-grow: 1;
@@ -301,20 +287,14 @@ nav a:hover::after {
 
 /* ------------- Version mobile ------------- */
 @media (max-width: 768px) {
-
-    /* Cache le menu par défaut en version mobile */
     nav {
         display: none;
     }
-
-    /* Affiche le menu burger */
     .menu-toggle {
         display: block;
         font-size: 2rem;
         z-index: 1001;
     }
-
-    /* Le menu déroulant qui apparaît en cliquant sur le burger */
     .nav-menu {
         display: none;
         text-align: center;
@@ -326,7 +306,6 @@ nav a:hover::after {
         background-color: rgba(0, 0, 0, 0.9);
         z-index: 999;
         overflow-y: auto;
-        /* Pour gérer le défilement si le contenu dépasse la hauteur de la fenêtre */
     }
 
     .nav-menu.show {
@@ -342,9 +321,6 @@ nav a:hover::after {
         font-size: clamp(0.9rem, 1vw + 0.5rem, 1.8rem);
     }
 
-
-
-    /* Le logo dans le menu mobile */
     .nav-menu .logo {
         position: absolute;
         top: 1rem;
@@ -366,19 +342,13 @@ footer>a {
     padding: 0;
 }
 
-/* ------------- Réseaux Sociaux ------------- */
 .logoRS {
     filter: grayscale(100%) brightness(100%) contrast(60%);
-    /* transition: all 0.3s ease; */
 }
 
 .logoRS:hover {
     filter: grayscale(0%);
-    /* Supprime le filtre gris au survol */
 }
-
-
-
 
 /* ------------- Style du bouton de retour en haut ------------- */
 .scroll-to-top {
@@ -401,7 +371,6 @@ footer>a {
     opacity: 1;
     visibility: visible;
 }
-
 
 /* ------------- Page index.php / Acceuil -------------*/
 .bloc-acceuil-1 {
@@ -449,7 +418,6 @@ footer>a {
 
 #img-acceuil-2 {
     max-height: 700px; 
-    /* object-fit: contain;  */
 }
 
 
@@ -466,7 +434,6 @@ footer>a {
     color : white;
 }
 
-/* Annimation */
 .anim-appear {
     opacity: 0;
 }
@@ -478,7 +445,7 @@ footer>a {
 }
 
 .bloc_info_wrapper {
-    overflow: hidden; /* Empêche le débordement horizontal */
+    overflow: hidden;
 }
 
 
@@ -593,18 +560,18 @@ form {
 
     .image-fond {
         position: absolute;
-        top: 70px; /* Décalage de 70px depuis le haut */
+        top: 70px;
         left: 50%;
         width: 100%;
-        height: auto; /* Permet de mieux s'ajuster */
-        object-fit: contain; /* Adapte l'image pour éviter qu'elle ne coupe trop */
-        transform: translateX(-50%); /* Centrer horizontalement */
+        height: auto; 
+        object-fit: contain; 
+        transform: translateX(-50%); 
         z-index: 0;
     }
     
     .bloc-acceuil-1 {
-        height: auto; /* Ajuste la hauteur pour éviter les débordements */
-        padding: 10px; /* Ajoute des marges pour améliorer la lisibilité */
+        height: auto; 
+        padding: 10px; 
     }
 
     .form-admin {
@@ -623,9 +590,7 @@ form {
         flex-direction: column;
 
         align-items: center;
-        /* Centre les éléments horizontalement */
         text-align: center;
-        /* Centre le texte sous l'image */
     }
 
     .margin-site {

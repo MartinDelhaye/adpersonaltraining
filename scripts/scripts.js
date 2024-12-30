@@ -15,18 +15,6 @@ function toggleClass(element, className, force) {
 }
 
 /**
- * Ajuste le padding supérieur du premier élément du contenu principal en fonction de la hauteur du header.
- */
-function ajusterPaddingTop() {
-    const header = document.querySelector('header');
-    const premierElementContenu = document.querySelector('main > *:first-child');
-
-    if (header && premierElementContenu) {
-        premierElementContenu.style.paddingTop = `${header.offsetHeight}px`;
-    }
-}
-
-/**
  * Vérifie si les éléments avec la classe `.anim-appear` sont visibles dans la fenêtre.
  * Ajoute la classe `show` pour activer leur animation si nécessaire.
  */
@@ -94,9 +82,6 @@ function setupScrollToTopButton() {
  * Fonction principale exécutée au chargement de la page.
  */
 function windowLoad() {
-    ajusterPaddingTop();
-    window.addEventListener('resize', ajusterPaddingTop);
-
     const currentPage = window.location.pathname;
     if (currentPage.includes('admin.php')) {
         const scrollTop = sessionStorage.getItem(`scrollTop-${currentPage}`);
