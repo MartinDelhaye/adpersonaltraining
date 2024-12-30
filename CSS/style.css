@@ -161,8 +161,8 @@ input[type="reset"] {
     width: auto;
     max-width: max-content;
     padding: 10px 20px;
-    color: black;
-    background-color: var(--color-trois);
+    background-color: var(--color-main);
+    color: white;
     border: none;
     border-radius: 5px;
     text-align: center;
@@ -172,8 +172,9 @@ input[type="reset"] {
 .action-button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
-    background-color: var(--color-main);
-    color: white;
+    color: black;
+    background-color: var(--color-trois);
+    
     border: var(--color-main) solid 1px;
 }
 
