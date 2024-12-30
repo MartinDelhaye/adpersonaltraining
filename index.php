@@ -47,7 +47,7 @@ $recupImageAcceuil1 = obtenirDonnees("chemin_images, id_images", "images", 'id_i
             ?>
         </div>
 
-        <div class="flex row space-between align-item-center modif-flex-mobile padding-2 padding-right-0 gap-1 ">
+        <div class="flex row space-between align-item-center modif-flex-mobile padding-2 padding-right-0 gap-1 height-page">
             <div class="width-67 ">
                 <?php 
                 afficheTitre(2, htmlspecialchars($titre2), "", "");
