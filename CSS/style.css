@@ -8,6 +8,9 @@
     --color-trois: #C0C0C0;
     --font-fam-principale: Montserrat, sans-serif;
     --font-fam-secondaire: Oswald, sans-serif;
+    --height-header: 70px;
+    scrollbar-color: var(--color-main) var(--color-fond);
+    /* scrollbar-width: thin; */
 }
 
 * {
@@ -121,7 +124,7 @@ a {
 }
 
 .height-page {
-    min-height: 100vh;
+    min-height: calc(100vh - var(--height-header));
 }
 
 .bordure-10 {
@@ -216,7 +219,7 @@ input[type="reset"]:hover {
     background-color: var(--color-main);
 }
 
-.color-second {
+.bg-color-second {
     background-color: var(--color-second);
 }
 
@@ -232,7 +235,7 @@ header {
     background-color: var(--color-main);
     z-index: 1000;
     max-height: 300px;
-    height: 70px;
+    height: var(--height-header);
     width: 100vw;
 }
 
@@ -254,7 +257,7 @@ header>a {
 }
 
 main {
-    padding-top: 70px;
+    padding-top: var(--height-header);
 }
 /* ------------- Navbar ------------- */
 nav {
@@ -409,7 +412,7 @@ footer>a {
     transform: translateX(-50%);
     width: 50%;
     background-color: var(--color-second);
-    border-radius: 8px;
+    border-radius: 20px;
     z-index: 2;
 }
 
@@ -423,9 +426,7 @@ footer>a {
 
 
 
-/* ------------- Style Page engagement.php et avantage.php ------------- */
-
-
+/* ------------- Style Page engagement.php / avantage.php /  ------------- */
 .bloc_info:nth-child(odd) {
     background-color: var(--color-trois);
 }

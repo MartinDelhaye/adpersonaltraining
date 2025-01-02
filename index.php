@@ -34,7 +34,7 @@ $recupImageAcceuil1 = obtenirDonnees("chemin_images, id_images", "images", 'id_i
 <body>
     <?php afficherHeader(); ?>
     <main >
-        <div class="width-100 bloc-acceuil-1 height-page color-second">
+        <section class="width-100 bloc-acceuil-1 height-page bg-color-second">
             <div class="content-block text-white texte-center flex column space-between align-item-center padding-2">
                 <?php 
                 afficheTitre(1, htmlspecialchars($titre1), "texte-center text-white", "");
@@ -45,9 +45,8 @@ $recupImageAcceuil1 = obtenirDonnees("chemin_images, id_images", "images", 'id_i
             <?php 
                 echo afficherImage('Image/Img_BDD/' . $recupImageAcceuil1['chemin_images'], $recupImageAcceuil1['id_images'], 'image-fond ', ''); 
             ?>
-        </div>
-
-        <div class="flex row space-between align-item-center modif-flex-mobile padding-2 padding-right-0 gap-1 height-page">
+        </section>
+        <section class="flex row space-between align-item-center modif-flex-mobile padding-2 padding-right-0 gap-1 height-page">
             <div class="width-67 ">
                 <?php 
                 afficheTitre(2, htmlspecialchars($titre2), "", "");
@@ -61,17 +60,12 @@ $recupImageAcceuil1 = obtenirDonnees("chemin_images, id_images", "images", 'id_i
             <?php 
             echo afficherImage('Image/Img_BDD/' . $recupImageAcceuil2['chemin_images'], $recupImageAcceuil2['id_images'], 'bordure-10 bordure-radius-20 bordure-radius-no-right width-33 mobile-only-width-100', 'img-acceuil-2'); 
             ?>
-        </div>
-
-
-        
+        </section>
     </main>
     <?php 
     afficherFooter();
     afficheButtonToTop();
     ?>
-
-    
 </body>
 
 </html>

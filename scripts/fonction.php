@@ -267,7 +267,7 @@ function afficherHeaderAdmin()
  */
 function afficheFormSelect($titre, $tabForm, $id = "", $class = "")
 {
-    echo '<article id="' . $id . '" class="' . $class . ' color-main">';
+    echo '<article id="' . $id . '" class="' . $class . ' bg-color-main">';
     afficheTitre(3, $titre, "", "");
     if (isset($tabForm[3])) {
         $paramSup = $tabForm[3];

@@ -43,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="description" content="Administration du Site AD Personal Training" />
     <title>Identification</title>
 </head>
-<body class="flex column align-item-center justify-content-center color-main">
-    <main class="color-second padding-2 bordure-radius-20 width-67 text-white">
+<body class="flex column align-item-center justify-content-center bg-color-main">
+    <main class="bg-color-second padding-2 bordure-radius-20 width-67 text-white">
         <div>
             <?php
             afficheTitre(1, "Identification", "texte-center text-white", "");   

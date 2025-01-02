@@ -25,39 +25,41 @@ $recupImagePresentation = obtenirDonnees("chemin_images, id_images", "images", '
 
 <head>
     <?php infometa() ?>
-    <meta name="keywords" content="Arnaud Deschamp, présentation, coach sportif, passion pour le sport, histoire, AD Personal Training">
-    <meta name="description" content="Découvrez l'histoire d'Arnaud Deschamp, fondateur d'AD Personal Training, une entreprise dédiée au coaching sportif sur mesure depuis 2020." />
+    <meta name="keywords"
+        content="Arnaud Deschamp, présentation, coach sportif, passion pour le sport, histoire, AD Personal Training">
+    <meta name="description"
+        content="Découvrez l'histoire d'Arnaud Deschamp, fondateur d'AD Personal Training, une entreprise dédiée au coaching sportif sur mesure depuis 2020." />
     <title>Qui Je suis ? - AD Personal Training</title>
 </head>
 
 <body>
     <?php
-    afficherHeader(); 
+    afficherHeader();
     ?>
     <main>
-        <div class="flex row space-between align-item-center modif-flex-mobile padding-2 padding-right-0 gap-1 height-page">
-            <section class="width-67">
+        <section
+            class="flex row space-between align-item-center modif-flex-mobile padding-2 padding-right-0 gap-1 height-page">
+            <div class="width-67">
+                <?php
+                afficheTitre(1, htmlspecialchars($titre_presentation), "", "");
+                echo "<p>" . nl2br(htmlspecialchars($paragraphe_presentation)) . "</p>";
+                ?>
+            </div>
             <?php
-            afficheTitre(1, htmlspecialchars($titre_presentation), "", "");
-            echo "<p>". nl2br(htmlspecialchars($paragraphe_presentation))."</p>";
+            echo afficherImage('Image/Img_BDD/' . $recupImagePresentation['chemin_images'], $recupImagePresentation['id_images'], 'bordure-10 bordure-radius-20 bordure-radius-no-right width-33 mobile-only-width-100', '');
             ?>
-            </section>
-            <?php 
-                echo afficherImage('Image/Img_BDD/' . $recupImagePresentation['chemin_images'], $recupImagePresentation['id_images'], 'bordure-10 bordure-radius-20 bordure-radius-no-right width-33 mobile-only-width-100', '');
-            ?>
-        </div>
-
-        <div class="flex column space-between color-second text-white padding-2">   
+        </section>
+        <section class="flex column justify-content-center bg-color-second text-white padding-2 height-page">
             <?php
             afficheTitre(2, htmlspecialchars($titre_formations), "", "");
-            echo "<p>". nl2br(htmlspecialchars($paragraphe_formations))."</p>";
+            echo "<p>" . nl2br(htmlspecialchars($paragraphe_formations)) . "</p>";
             ?>
-        </div>
+        </section>
     </main>
-    <?php 
+    <?php
     afficherFooter();
     afficheButtonToTop();
     ?>
-
 </body>
+
 </html>
