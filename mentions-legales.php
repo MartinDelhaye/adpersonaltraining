@@ -14,10 +14,9 @@ include ("config/config.php");
 
 <body>
     <?php afficherHeader(); ?>
-    <main class="flex column justify-content-center padding-2">
-        <h1 class="texte-center">Mentions Légales</h1>
-
-        <section>
+    <main class="flex column justify-content-center ">
+        <?php afficheTitre(1, "Mentions Légales", "texte-center", "");?>
+        <section class="padding-2">
             <h2>1. Informations légales</h2>
             <p>Le site <strong>AD PERSONAL TRAINING</strong> est édité par <strong>Deschamp Arnaud</strong>, président de la société AD PERSONAL TRAINING, immatriculée sous le numéro SIREN <strong>949 102 503</strong> et domiciliée à l'adresse suivante :</p>
             <p><strong>72 Grande Rue de Saint Clair, 69300 Caluire-et-Cuire</strong></p>
@@ -32,27 +31,27 @@ include ("config/config.php");
             <p>Pour signaler un abus, vous pouvez les contacter par e-mail à <a href="mailto:report-abuse@infinityfree.com">report-abuse@infinityfree.com</a>.</p>
         </section>
 
-        <section>
+        <section class="padding-2">
             <h2>2. Propriété intellectuelle</h2>
             <p>Le contenu du site, y compris les textes, images, logos, graphiques, vidéos, etc., est la propriété exclusive de <strong>AD PERSONAL TRAINING</strong> ou de ses partenaires, sauf mention contraire. Toute reproduction ou représentation de ce contenu sans autorisation préalable est interdite.</p>
         </section>
 
-        <section>
+        <section class="padding-2">
             <h2>3. Responsabilité</h2>
             <p><strong>AD PERSONAL TRAINING</strong> met tout en œuvre pour assurer l'exactitude des informations diffusées sur le site, mais ne saurait être tenu responsable des erreurs, omissions, ou imprécisions survenant malgré tous les efforts fournis.</p>
         </section>
 
-        <section>
+        <section class="padding-2">
             <h2>4. Cookies</h2>
             <p>Aucun de ces cookies n'est utilisé pour collecter des données personnelles des utilisateurs.</p>
         </section>
 
-        <section>
+        <section class="padding-2">
             <h2>5. Loi applicable</h2>
             <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, le tribunal compétent sera celui du ressort de Lyon.</p>
         </section>
 
-        <section>
+        <section class="padding-2">
             <h2>6. Modification des mentions légales</h2>
             <p><strong>AD PERSONAL TRAINING</strong> se réserve le droit de modifier les présentes mentions légales à tout moment. Les utilisateurs sont invités à consulter régulièrement cette page.</p>
         </section>
