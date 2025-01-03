@@ -49,7 +49,7 @@ $recupImageAcceuil1 = [
                 <img src="Image/Img_BDD/<?php echo $recupImageAcceuil1['desktop']['chemin_images']; ?>" class="image-fond" alt="Image de <?php echo $recupImageAcceuil1['desktop']['id_images']; ?>" title="Image de <?php echo $recupImageAcceuil1['desktop']['id_images']; ?>"/>
             </picture>
         </section>
-        <section class="flex row space-between align-item-center modif-flex-mobile padding-2 padding-right-0 gap-1 height-page">
+        <section class="flex row space-between align-item-center mobile-only-justify-content-center mobile-only-column padding-2 padding-right-0 gap-1 height-page">
             <div class="width-67">
                 <?php 
                 afficheTitre(2, htmlspecialchars($titre2), "", "");
