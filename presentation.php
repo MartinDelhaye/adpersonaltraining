@@ -49,7 +49,7 @@ $recupImagePresentation = obtenirDonnees("chemin_images, id_images", "images", '
             echo afficherImage('Image/Img_BDD/' . $recupImagePresentation['chemin_images'], $recupImagePresentation['id_images'], 'bordure-10 bordure-radius-20 bordure-radius-no-right width-33 mobile-only-width-100', '');
             ?>
         </section>
-        <section class="flex column justify-content-center bg-color-second text-white padding-2 height-page">
+        <section class="bg-color-second text-white padding-2 *">
             <?php
             afficheTitre(2, htmlspecialchars($titre_formations), "", "");
             echo "<p>" . nl2br(htmlspecialchars($paragraphe_formations)) . "</p>";
