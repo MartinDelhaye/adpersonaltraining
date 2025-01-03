@@ -1,8 +1,6 @@
 <?php
 include ("config/config.php");
 
-$imageUrl = $chemin_absolu_site.'/Image/img_acceuil.jpg';
-
 // Récupération des textes de la bdd
 $textes = obtenirDonnees("id_textes, contenu", "textes", 'id_textes IN ("Titre acceuil 1", "texte_acceuil_1", "Titre acceuil 2", "texte_acceuil_2")', "", 'fetchAll');
 
@@ -19,7 +17,10 @@ $titre2 = $data['Titre acceuil 2'];
 $paragraphe2 = $data['texte_acceuil_2'];
 
 $recupImageAcceuil2 = obtenirDonnees("chemin_images, id_images", "images", 'id_images = "image_acceuil_2"', '', 'fetch');
-$recupImageAcceuil1 = obtenirDonnees("chemin_images, id_images", "images", 'id_images = "image_acceuil_1"', '', 'fetch');
+$recupImageAcceuil1 = [
+    "desktop" => obtenirDonnees("chemin_images, id_images", "images", 'id_images = "image_acceuil_1"', '', 'fetch'),
+    "mobile" => obtenirDonnees("chemin_images, id_images", "images", 'id_images = "Image Acceuil 1 Mobile"', '', 'fetch'),
+];
 ?>
 <!doctype html>
 <html lang="fr">
@@ -34,7 +35,7 @@ $recupImageAcceuil1 = obtenirDonnees("chemin_images, id_images", "images", 'id_i
 <body>
     <?php afficherHeader(); ?>
     <main >
-        <section class="width-100 bloc-acceuil-1 height-page bg-color-second">
+        <section class="width-100 filtre-noir height-page position-relative">
             <div class="content-block text-white texte-center flex column space-between align-item-center padding-2">
                 <?php 
                 afficheTitre(1, htmlspecialchars($titre1), "texte-center text-white", "");
@@ -42,17 +43,19 @@ $recupImageAcceuil1 = obtenirDonnees("chemin_images, id_images", "images", 'id_i
                 <p><?php echo nl2br(htmlspecialchars($paragraphe1)); ?></p>
                 <a href="presentation.php" class="action-button">En savoir plus sur moi</a>
             </div>
-            <?php 
-                echo afficherImage('Image/Img_BDD/' . $recupImageAcceuil1['chemin_images'], $recupImageAcceuil1['id_images'], 'image-fond ', ''); 
-            ?>
+            <picture>
+                <source srcset="Image/Img_BDD/<?php echo $recupImageAcceuil1['mobile']['chemin_images']; ?>" media="(max-width: 768px)">
+                <source srcset="Image/Img_BDD/<?php echo $recupImageAcceuil1['desktop']['chemin_images']; ?>" media="(min-width: 769px)">
+                <img src="Image/Img_BDD/<?php echo $recupImageAcceuil1['desktop']['chemin_images']; ?>" class="image-fond" alt="Image de <?php echo $recupImageAcceuil1['desktop']['id_images']; ?>" title="Image de <?php echo $recupImageAcceuil1['desktop']['id_images']; ?>"/>
+            </picture>
         </section>
         <section class="flex row space-between align-item-center modif-flex-mobile padding-2 padding-right-0 gap-1 height-page">
-            <div class="width-67 ">
+            <div class="width-67">
                 <?php 
                 afficheTitre(2, htmlspecialchars($titre2), "", "");
                 ?>
                 <p><?php echo nl2br(htmlspecialchars($paragraphe2)); ?></p>
-                <div id="redirection" class="flex row align-item-center gap-1 ">
+                <div id="redirection" class="flex row mobile-only-justify-content-center gap-1 ">
                     <a href="#blockRS" title="retour accueil" class="texte-center action-button">Contact</a>
                     <a href="engagement.php" title="retour accueil" class="texte-center action-button">Engagement</a>
                 </div>
