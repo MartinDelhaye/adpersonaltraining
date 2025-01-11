@@ -5,7 +5,6 @@ $recupImageAcceuil1 = [
     "mobile" => obtenirDonnees("chemin_images, id_images", "images", 'id_images = "Image Acceuil 1 Mobile"', '', 'fetch'),
 ];
 
-// Contenus statiques pour l'erreur 404
 $titre1 = "Erreur 404 - Page non trouvée";
 $paragraphe1 = "Oups ! La page que vous recherchez n'existe pas ou a été déplacée.";
 ?>
@@ -24,7 +23,7 @@ $paragraphe1 = "Oups ! La page que vous recherchez n'existe pas ou a été dépl
     <?php afficherHeader(); ?>
     <main>
         <section class="width-100 filtre-noir height-page position-relative">
-            <div class="content-block text-white texte-center flex column space-between align-item-center padding-2">
+            <div class="block-accueil width-50 mobile-only-width-90 text-white texte-center flex column space-between align-item-center padding-2 bordure-radius-20 bordure-radius-no-bottom position-absolute bg-color-second">
                 <?php 
                 afficheTitre(1, htmlspecialchars($titre1), "texte-center text-white", "");
                 ?>
