@@ -11,7 +11,7 @@ $tabTemoignage = obtenirDonnees("prenom_temoignage, nom_temoignage, metier_temoi
     <?php infometa() ?>
     <meta name="keywords" content="témoignages, avis clients, Arnaud Deschamp, transformations, coaching sportif">
     <meta name="description" content=" Découvrez les expériences de mes clients et comment AD Personal Training a transformé leur vie grâce à un coaching sur mesure." />
-    <title>Ce Que Nos Clients Disent - AD Personal Training</title>
+    <title>Ce Que Mes Clients Disent - AD Personal Training</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@ $tabTemoignage = obtenirDonnees("prenom_temoignage, nom_temoignage, metier_temoi
                             ""
                         ); ?>
             
-                        <div class="width-67 mobile-only-width-100">
+                        <div class="width-67 mobile-only-width-90">
                             <?php afficheTitre(2, $tabTemoignage[$i]["prenom_temoignage"] . " " . $tabTemoignage[$i]["nom_temoignage"], "", ""); ?>
             
                             <?php
@@ -52,7 +52,7 @@ $tabTemoignage = obtenirDonnees("prenom_temoignage, nom_temoignage, metier_temoi
                             ?>
                             <?php afficheTitre(3, $sous_titre, "", ""); ?>
             
-                            <p><?php echo $tabTemoignage[$i]["texte_temoignage"]; ?></p>
+                            <p class="texte-justify"><?php echo $tabTemoignage[$i]["texte_temoignage"]; ?></p>
                         </div>
                     </div>
                 </article>

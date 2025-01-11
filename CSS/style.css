@@ -7,10 +7,9 @@
     --color-second: #898989;
     --color-trois: #C0C0C0;
     --font-fam-principale: Montserrat, sans-serif;
-    --font-fam-secondaire: Oswald, sans-serif;
+    --font-fam-secondaire: lato, sans-serif;
     --height-header: 70px;
     scrollbar-color: var(--color-main) var(--color-fond);
-    /* scrollbar-width: thin; */
 }
 
 * {
@@ -90,6 +89,9 @@ a {
 .position-relative {
     position: relative;
 }
+.position-absolute {
+    position: absolute;
+}
 
 .gap-1 {
     gap: 1vw;
@@ -105,6 +107,12 @@ a {
 
 .texte-center {
     text-align: center;
+}
+.texte-justify {
+    text-align: justify;
+}
+.texte-last-center {
+    text-align-last: center;
 }
 
 .width-100 {
@@ -135,6 +143,10 @@ a {
     min-height: calc(50vh - var(--height-header));
 }
 
+.height-100 {
+    height: 100%;
+}
+
 .bordure-10 {
     border: 10px solid var(--color-trois);
 }
@@ -145,6 +157,11 @@ a {
 
 .bordure-radius-no-right {
     border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.bordure-radius-no-bottom {
+    border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
 
@@ -355,11 +372,11 @@ footer>a {
 }
 
 .logoRS {
-    filter: grayscale(100%) brightness(100%) contrast(60%);
+    filter: grayscale(100%) contrast(60%);
 }
 
 .logoRS:hover {
-    filter: grayscale(0%);
+    filter: grayscale(0%) contrast(100%);
 }
 
 /* ------------- Style du bouton de retour en haut ------------- */
@@ -384,7 +401,7 @@ footer>a {
     visibility: visible;
 }
 
-/* ------------- Page index.php / Acceuil -------------*/
+/* ------------- Page index.php / Accueil -------------*/
 .image-fond {
     position: absolute;
     top: 0;
@@ -413,25 +430,20 @@ footer>a {
     z-index: 2;
 }
 
-.content-block {
-    position: absolute;
+.block-accueil {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 50%;
-    background-color: var(--color-second);
-    border-radius: 20px;
     z-index: 2;
 }
 
-.content-block h1 {
+.block-accueil h1 {
     margin: 0;
 }
 
-#img-acceuil-2 {
+.max-height-700 {
     max-height: 700px; 
 }
-
 
 
 /* ------------- Style Page engagement.php / avantage.php /  ------------- */
@@ -487,15 +499,11 @@ footer>a {
         transition: all 0.8s ease-in-out;
     }
     
-    .bloc_info:nth-child(even).info_avantage.show {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    
+    .bloc_info:nth-child(even).info_avantage.show,
     .bloc_info:nth-child(odd).info_avantage.show {
         transform: translateX(0);
         opacity: 1;
-    }    
+    }
 }
 @media (max-width: 768px) {
     .bloc_info.info_avantage{
@@ -590,10 +598,6 @@ form {
         margin-right: 5%;
     }
 
-    .mobile-only-width-100 {
-        width: 100%;
-    }
-
     .mobile-only-justify-content-center{
         justify-content: center;
     }
@@ -605,13 +609,12 @@ form {
     .img-temoignage {
         max-width: 300px;
     }
-
-    .width-67 {
+    .mobile-only-width-100 {
         width: 100%;
-
     }
-
-    
+    .mobile-only-width-90 {
+        width: 90%;
+    }
 
     .content-block {
         width: 70%;

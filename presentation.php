@@ -38,21 +38,21 @@ $recupImagePresentation = obtenirDonnees("chemin_images, id_images", "images", '
     ?>
     <main>
         <section
-            class="flex row space-between align-item-center modif-flex-mobile padding-2 padding-right-0 gap-1 height-page">
-            <div class="width-67">
+            class="flex row space-between align-item-center mobile-only-column mobile-only-justify-content-center padding-2 padding-right-0 gap-1 height-page">
+            <div class="width-67 mobile-only-width-90 ">
                 <?php
                 afficheTitre(1, htmlspecialchars($titre_presentation), "", "");
-                echo "<p>" . nl2br(htmlspecialchars($paragraphe_presentation)) . "</p>";
+                echo "<p class='texte-justify'>" . nl2br(htmlspecialchars($paragraphe_presentation)) . "</p>";
                 ?>
             </div>
             <?php
-            echo afficherImage('Image/Img_BDD/' . $recupImagePresentation['chemin_images'], $recupImagePresentation['id_images'], 'bordure-10 bordure-radius-20 bordure-radius-no-right width-33 mobile-only-width-100', '');
+            echo afficherImage('Image/Img_BDD/' . $recupImagePresentation['chemin_images'], $recupImagePresentation['id_images'], 'height-100 bordure-10 bordure-radius-20 bordure-radius-no-right width-33 mobile-only-width-100 max-height-700');
             ?>
         </section>
-        <section class="bg-color-second text-white padding-2 *">
+        <section class="bg-color-second text-white padding-2">
             <?php
             afficheTitre(2, htmlspecialchars($titre_formations), "", "");
-            echo "<p>" . nl2br(htmlspecialchars($paragraphe_formations)) . "</p>";
+            echo "<p class='texte-justify'>" . nl2br(htmlspecialchars($paragraphe_formations)) . "</p>";
             ?>
         </section>
     </main>

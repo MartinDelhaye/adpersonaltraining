@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: 
+
+Sitemap: https://adpersonaltraining.fr/sitemap.xml
+
+
+User-agent: Googlebot
+Disallow:
+
+
+User-agent: Bingbot
+Disallow: /
+

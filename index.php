@@ -29,19 +29,19 @@ $recupImageAcceuil1 = [
     <?php infometa() ?>
     <meta name="keywords" content="Arnaud Deschamp, coaching sportif, AD Personal Training, bien-être, fitness, entraînement personnel">
     <meta name="description" content="Transformez votre forme physique avec AD Personal Training, fondé par Arnaud Deschamp. Profitez d'un accompagnement sportif personnalisé et adapté à vos objectifs." />
-    <title>Bienvenue chez AD Personal Training</title>
+    <title>Accueil - AD Personal Training</title>
 </head>
 
 <body>
     <?php afficherHeader(); ?>
     <main >
         <section class="width-100 filtre-noir height-page position-relative">
-            <div class="content-block text-white texte-center flex column space-between align-item-center padding-2">
+            <div class="block-accueil width-50 mobile-only-width-90 text-white texte-center flex column space-between align-item-center padding-2 bordure-radius-20 bordure-radius-no-bottom position-absolute bg-color-second">
                 <?php 
                 afficheTitre(1, htmlspecialchars($titre1), "texte-center text-white", "");
                 ?>
-                <p><?php echo nl2br(htmlspecialchars($paragraphe1)); ?></p>
-                <a href="presentation.php" class="action-button">En savoir plus sur moi</a>
+                <p class="texte-justify texte-last-center"><?php echo nl2br(htmlspecialchars($paragraphe1)); ?></p>
+                <a href="presentation.php" title="Aller sur la page de présentation" class="action-button">En savoir plus sur moi</a>
             </div>
             <picture>
                 <source srcset="Image/Img_BDD/<?php echo $recupImageAcceuil1['mobile']['chemin_images']; ?>" media="(max-width: 768px)">
@@ -50,18 +50,18 @@ $recupImageAcceuil1 = [
             </picture>
         </section>
         <section class="flex row space-between align-item-center mobile-only-justify-content-center mobile-only-column padding-2 padding-right-0 gap-1 height-page">
-            <div class="width-67">
+            <div class="width-67 mobile-only-width-100">
                 <?php 
                 afficheTitre(2, htmlspecialchars($titre2), "", "");
                 ?>
                 <p><?php echo nl2br(htmlspecialchars($paragraphe2)); ?></p>
                 <div id="redirection" class="flex row mobile-only-justify-content-center gap-1 ">
-                    <a href="#blockRS" title="retour accueil" class="texte-center action-button">Contact</a>
-                    <a href="engagement.php" title="retour accueil" class="texte-center action-button">Engagement</a>
+                    <a href="#blockRS" title="Aller vers Contact" class="texte-center action-button">Contact</a>
+                    <a href="temoignage.php" title="Aller sur la page des Témoignages" class="texte-center action-button">Témoignages</a>
                 </div>
             </div>
             <?php 
-            echo afficherImage('Image/Img_BDD/' . $recupImageAcceuil2['chemin_images'], $recupImageAcceuil2['id_images'], 'bordure-10 bordure-radius-20 bordure-radius-no-right width-33 mobile-only-width-100', 'img-acceuil-2'); 
+            echo afficherImage('Image/Img_BDD/' . $recupImageAcceuil2['chemin_images'], $recupImageAcceuil2['id_images'], 'bordure-10 bordure-radius-20 bordure-radius-no-right width-33 mobile-only-width-100 max-height-700'); 
             ?>
         </section>
     </main>

@@ -8,6 +8,8 @@ if (!isset($_POST["tabName"])) {
 
 // Inclusion du fichier de configuration et vérification de la connexion de l'utilisateur
 include("config/config.php");
+include("scripts/fonction-admin.php");
+
 isUserLoggedIn();
 
 

@@ -1,5 +1,6 @@
 <?php
 include("config/config.php");
+include("scripts/fonction-admin.php");
 
 // Vérifie si l'utilisateur est connecté
 isUserLoggedIn();
@@ -251,7 +252,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-    <main class="color-main padding-2 flex column gap-1 align-item-center justify-content-center">
+    <main class="bg-color-second padding-2 flex column gap-1 align-item-center justify-content-center">
         <?php
         // Affiche un message de bienvenue avec le nom d'utilisateur
         afficheTitre(1, "Page de modification du compte : " . htmlspecialchars($username), "texte-center", "");   
@@ -289,17 +290,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <!-- Modifier les rôles des utilisateurs -->
                 <?php 
                 if (!empty($tabInputsModifRoleUser)) {
-                    afficheFormSelect("Modifier le rôle d'un utilisateur :", ["adminCompte.php", "POST", $tabInputsModifRoleUser], "users-moddif");
+                    afficheFormSelect("Modifier le rôle d'un utilisateur :", ["adminCompte.php", "POST", $tabInputsModifRoleUser], "users-moddif", "bg-color-second");
                 }                  
 
                 // Supprimer des utilisateurs
                 if (!empty($tabInputsSupprUser )) {
-                    afficheFormSelect("Supprimer un utilisateur :", ["adminCompte.php", "POST", $tabInputsSupprUser], "users-suppr");
+                    afficheFormSelect("Supprimer un utilisateur :", ["adminCompte.php", "POST", $tabInputsSupprUser], "users-suppr", "bg-color-second");
                 }
                 
                 // Ajouter des utilisateurs 
                 if (!empty($tabInputsNewUser)) {
-                    afficheFormSelect("Ajouter un utilisateur :", ["adminCompte.php", "POST", $tabInputsNewUser], "users-ajout");
+                    afficheFormSelect("Ajouter un utilisateur :", ["adminCompte.php", "POST", $tabInputsNewUser], "users-ajout", "bg-color-second");
                 }
                 ?>                    
             </section>

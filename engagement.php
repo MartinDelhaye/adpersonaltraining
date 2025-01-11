@@ -13,7 +13,7 @@ $recupImageEngagement = obtenirDonnees("chemin_images, id_images", "images", 'id
     <?php infometa() ?>
     <meta name="keywords" content="engagement, Arnaud Deschamp, confiance, résultats, accompagnement personnalisé">
     <meta name="description" content="Chez AD Personal Training, nous nous engageons à vous offrir un accompagnement sportif de qualité pour atteindre vos objectifs." />
-    <title>Mes Engagements - AD Personal Training</title>
+    <title>Mon savoir-faire - AD Personal Training</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@ $recupImageEngagement = obtenirDonnees("chemin_images, id_images", "images", 'id
         </section>
         <?php
         if (!empty($tabEngagement)):
-            afficheInfo($tabEngagement, 'engagement', 'flex column', 'anim-appear bloc_info info_engagement flex row justify-content-center texte-center padding-2');
+            afficheInfo($tabEngagement, 'engagement', 'flex column', 'anim-appear bloc_info info_engagement flex row justify-content-center padding-2 texte-justify texte-last-center');
         endif;
         ?>
     </main>

@@ -1,5 +1,6 @@
 <?php
 include("config/config.php");
+include("scripts/fonction-admin.php");
 
 // Démarrer une session pour gérer l'authentification
 // session_start();

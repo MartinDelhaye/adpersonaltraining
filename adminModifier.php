@@ -8,6 +8,7 @@ if (!isset($_POST["tabName"])) {
 
 // Inclusion du fichier de configuration pour la connexion à la base de données
 include("config/config.php");
+include("scripts/fonction-admin.php");
 
 
 // Activer le buffering de sortie pour gérer les en-têtes HTTP
@@ -179,7 +180,7 @@ try {
 // Mise à jour de l'image de favicon
 if(isset($_FILES['faviconFolder']['tmp_name']) && !empty($_FILES['faviconFolder']['tmp_name'][0])) {
     echo "<br> coucou";
-    $uploadDirectory = rtrim($chemin_absolu_site."/Image/favicon_io/", '/') . '/';
+    $uploadDirectory = rtrim($chemin_absolu_site, '/') . '/';
 
     // Supprimer les fichiers existants dans le dossier
     array_map('unlink', glob($uploadDirectory . '*'));
