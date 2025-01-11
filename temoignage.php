@@ -26,7 +26,7 @@ $tabTemoignage = obtenirDonnees("prenom_temoignage, nom_temoignage, metier_temoi
             <section>
             <?php for ($i = 0; $i < count($tabTemoignage); $i++):?>
                 <article class='bloc_info'>
-                    <div class='padding-2 margin-site temoignage flex row align-item-center justify-content-center gap-1'>
+                    <div class='padding-2 margin-site mobile-only-justify-content-center mobile-only-column mobile-only-texte-center flex row align-item-center justify-content-center gap-1'>
                         <?php echo afficherImage(
                             "Image/Temoignage/" . $tabTemoignage[$i]["img_temoignage"],
                             $tabTemoignage[$i]["nom_temoignage"] . " " . $tabTemoignage[$i]["prenom_temoignage"],
