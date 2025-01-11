@@ -136,11 +136,11 @@ a {
 }
 
 .height-page {
-    min-height: calc(100vh - var(--height-header));
+    min-height: calc(100svh - var(--height-header));
 }
 
 .height-semiPage {
-    min-height: calc(50vh - var(--height-header));
+    min-height: calc(50svh - var(--height-header));
 }
 
 .height-100 {
